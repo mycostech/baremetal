@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-
-
 import { AppComponent } from './app.component';
-import { TelemetryService } from './telemetry.service';
-
+import { TelemetryService } from './services/telemetry.service';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -13,7 +11,8 @@ import { TelemetryService } from './telemetry.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxDatatableModule
   ],
   providers: [TelemetryService],
   bootstrap: [AppComponent]

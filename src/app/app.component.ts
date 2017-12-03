@@ -1,43 +1,99 @@
 import { Component } from '@angular/core';
-import { TelemetryService } from './telemetry.service';
-import { Schema } from './telemetry.service';
+import { TelemetryService } from './services/telemetry.service';
+import { Schema, HarperOperation, TelemetryEvent, TelemetryData, Record } from './models/harper.models';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css',
+  ]
 })
 export class AppComponent {
 
   schemas: Schema[] = [];
-  title = 'Hello HarperDB';
+
+  rows = [
+
+  ];
+
+  columns = [
+    { prop: 'id' },
+    { name: 'Description' },
+    { name: 'Event' },
+    { name: 'Time' }
+  ];
+
+  title = 'BareMetal Telemetry with HarperDB and Angular 5';
 
   constructor(private telemetryService: TelemetryService) { }
 
   ngOnInit() {
-    this.getSchema();
-
-    console.log(JSON.stringify(this.schemas));
-
-    this.schemas.forEach(element => {
-      console.log(JSON.stringify(element));
-    });
+    // this.getSchema();
   }
+
+
+  onReadTelemetry() {
+    this.telemetryService.readTelemetry()
+      .subscribe(result => {
+        this.rows = result;
+      });
+  }
+
+  onWriteTelemetry(): void {
+    this.telemetryService.writeTelemetry(this.generateFakeTelemetryEvent())
+      .subscribe(result => {
+        this.onReadTelemetry();
+        console.log(result);
+      });
+  }
+
 
   getSchema(): void {
     this.telemetryService.getHarperSchemas()
       .subscribe(schemas => {
         this.schemas = schemas;
-        let schemaKeys: string[] = Object.keys(this.schemas);
+        const schemaKeys: string[] = Object.keys(this.schemas);
 
         schemaKeys.forEach(element => {
           let individualSchema = this.schemas[element];
           console.log("Schema for " + element + " is: " + JSON.stringify(individualSchema));
           let mappedSchema: Schema = new Schema();
           mappedSchema.name = element;
-          mappedSchema.tables = individualSchema
+          mappedSchema.tables = individualSchema;
         });
       });
+  };
+
+
+  generateFakeTelemetryEvent(): TelemetryEvent {
+
+    const telemetryOp: TelemetryEvent = new TelemetryEvent();
+    const rec: Record = new Record();
+
+    rec.id = Guid.newGuid();
+    rec.description = 'Something bad happened in the app';
+    rec.time = new Date().toUTCString();
+    rec.event = this.randomEvent();
+
+    telemetryOp.records.push(rec);
+
+    return telemetryOp;
+  }
+
+
+  randomEvent(): string {
+    const eventTypes = ['crash', 'warning', 'i/o bottleneck', 'unknown'];
+    return eventTypes[Math.floor(Math.random() * eventTypes.length)];
+  }
+
+}
+
+class Guid {
+  static newGuid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
   }
 }

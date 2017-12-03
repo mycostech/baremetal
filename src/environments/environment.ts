@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  connection: { server: "http://localhost:9925", username: "harperdb", password: "notmine" }
+  connection: { server: 'http://localhost:9925', username: "harperdb", password: "" }
 };
 
 
