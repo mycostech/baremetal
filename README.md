@@ -1,9 +1,9 @@
-# BareMetal Telemetry - A Telemetry Prototype backed by HarperDB
+# BareMetal Telemetry - An Angular5 Telemetry Starter backed by HarperDB
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.  It prototypes and Angular 5 telemetry application backed by HarperDB, a NoSQL/SQL database.
 
 ## Installing the database
-Nagiviate to `http://products.harperdb.io/download/beta` and install on linux / os/x / or in the windows 10 ubuntu sub-system
+Nagiviate to [harperdb.io](http://products.harperdb.io/download/beta)  and install on linux / os/x / or in the windows 10 ubuntu sub-system
 
 ## Development server
 
