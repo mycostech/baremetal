@@ -41,7 +41,7 @@ export class TelemetryService {
   }
 
   /**
-   * 
+   *
    * Send some test telemetry data to HarperDB
    */
   writeTelemetry(telemetryEvent: TelemetryEvent): Observable<HarperResponse> {
@@ -56,7 +56,7 @@ export class TelemetryService {
   * TODO: append headers via HttpInterceptor, e.g. AuthInterceptor implements HttpInterceptor
   */
   private buildHeaders(): HttpHeaders {
-    
+
     let headers: HttpHeaders;
 
     if (!this.headers) {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TelemetryService } from './services/telemetry.service';
 import { Schema, HarperOperation, TelemetryEvent, TelemetryData, Record } from './models/harper.models';
 import { Observable } from 'rxjs/Observable';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,7 @@ export class AppComponent {
 
   schemas: Schema[] = [];
 
-  rows = [
-
-  ];
+  rows = [];
 
   columns = [
     { prop: 'id' },
@@ -33,18 +32,18 @@ export class AppComponent {
   }
 
 
-  onReadTelemetry() {
+  onReadTelemetry()   {
     this.telemetryService.readTelemetry()
       .subscribe(result => {
         this.rows = result;
       });
   }
 
-  onWriteTelemetry(): void {
+  onWriteTelemetry(){
     this.telemetryService.writeTelemetry(this.generateFakeTelemetryEvent())
       .subscribe(result => {
-        this.onReadTelemetry();
         console.log(result);
+        this.onReadTelemetry();
       });
   }
 
