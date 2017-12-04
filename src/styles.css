@@ -1,3 +1,144 @@
 @import '~@swimlane/ngx-datatable/release/index.css';
 @import '~@swimlane/ngx-datatable/release/themes/material.css';
 @import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+body{
+    font-family: 'Oxygen', sans-serif;
+    margin:0px;
+    }
+
+    .bs-docs-header {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .bs-docs-header, .bs-docs-masthead {
+        position: relative;
+        padding: 30px 0;
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 1px 0 rgba(0,0,0,.1);
+        background-color: rgba(29, 43, 83, 1);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+        background-repeat: repeat-x;
+    }
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .p-1{
+        padding:10px;
+    }
+    .p-2{
+        padding:20px;
+    }
+    .p-3{
+        padding:30px;
+    }
+    .p-4{
+        padding:40px;
+    }
+    .p-5{
+        padding:50px;
+    }
+
+    .navbar{
+        border: 0px;
+        border-radius: 0px;
+        text-align: left;
+        margin-top:15px;
+        margin-bottom: 5px;
+    }
+
+    .topnav li{
+        background-color: #888;
+        color:#fff;
+        margin-right: 5px;
+        
+            }
+            .topnav li:hover{
+                background-color: #888 !important;
+                    }
+
+                    
+    .topnav li:focus{
+        background-color: #888;
+        color:#fff;
+        margin-right: 5px;
+        
+            }
+
+    .topnav a{ color:#fff;
+
+    }
+    .topnav a:hover{ color:#333;
+        background-color: #888;
+            }
+
+            .topnav a:focus{ color:#333;
+                background-color: #888;
+                    }
+
+                    
+
+    .footerbar{
+        border: 0px;
+        border-radius: 0px;
+        text-align: center;
+    }
+
+    #myFooter {
+        clear: both;
+        padding-top: 32px;
+        margin-top:50px;
+    }
+
+    #myFooter ul {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 18px;
+    }
+
+    ol, ul {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    #myFooter li {
+        display: inline-block;
+        margin: 0px 15px;
+        line-height: 2;
+    }
+
+    #myFooter a {
+        color: #282b2d;
+        font-size: 16px;
+    }
+
+    #myFooter .container {
+        text-align: center;
+    }
+    @media (min-width: 1200px){
+    .container {
+        width: 1170px;
+    }
+}
+    @media (min-width: 992px){
+    .container {
+        width: 970px;
+    }
+}
+
+
+.datatable-header{
+    background-color: #1B2C51;
+}
+
+.ngx-datatable.material .datatable-header .datatable-header-cell{
+    color:#fff;
+    font-size:14px;
+}
