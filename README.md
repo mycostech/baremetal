@@ -1,5 +1,7 @@
 # BareMetal Telemetry - An Angular5 Telemetry Starter backed by HarperDB
 
+This is the repository for the Medium article [Angular 5 with HarperDB](https://medium.com/@intransitvita/baremetal-a-simple-telemetry-monitor-with-angular-5-and-harperdb-355984b6cdf2) 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.  It prototypes an Angular 5 telemetry application backed by HarperDB, a NoSQL/SQL database.
 
 ## Installing the database
