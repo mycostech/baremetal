@@ -32,14 +32,14 @@ export class AppComponent {
   }
 
 
-  onReadTelemetry()   {
+  onReadTelemetry() {
     this.telemetryService.readTelemetry()
       .subscribe(result => {
         this.rows = result;
       });
   }
 
-  onWriteTelemetry(){
+  onWriteTelemetry() {
     this.telemetryService.writeTelemetry(this.generateFakeTelemetryEvent())
       .subscribe(result => {
         console.log(result);
@@ -55,14 +55,14 @@ export class AppComponent {
         const schemaKeys: string[] = Object.keys(this.schemas);
 
         schemaKeys.forEach(element => {
-          let individualSchema = this.schemas[element];
-          console.log("Schema for " + element + " is: " + JSON.stringify(individualSchema));
-          let mappedSchema: Schema = new Schema();
+          const individualSchema = this.schemas[element];
+          console.log('Schema for ' + element + ' is: ' + JSON.stringify(individualSchema));
+          const mappedSchema: Schema = new Schema();
           mappedSchema.name = element;
           mappedSchema.tables = individualSchema;
         });
       });
-  };
+  }
 
 
   generateFakeTelemetryEvent(): TelemetryEvent {

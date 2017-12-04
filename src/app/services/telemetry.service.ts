@@ -25,7 +25,7 @@ export class TelemetryService {
 
   public getHarperSchemas(): Observable<Schema[]> {
     return this.http.post<Schema[]>(this.connection.server, DescribeAll, { headers: this.headers }).pipe(
-      tap(schemas =>  // console.log("Get Schema Returned: " + JSON.stringify(schemas)),
+      tap(schemas =>  // console.log('Get Schema Returned: ' + JSON.stringify(schemas)),
         catchError(this.handleError('getMetaSchema', []))
       ));
   }
@@ -35,7 +35,7 @@ export class TelemetryService {
   */
   readTelemetry(): Observable<Record[]> {
     return this.http.post<Record[]>(this.connection.server, readTelemetryOperation, { headers: this.headers }).pipe(tap(telemetryRows =>
-      this.log(` Returned "${(telemetryRows.length)}" records from HarperDB `)),
+      this.log(` Returned '${(telemetryRows.length)}' records from HarperDB `)),
       catchError(this.handleError('readTelemetry', []))
     );
   }
@@ -46,7 +46,7 @@ export class TelemetryService {
    */
   writeTelemetry(telemetryEvent: TelemetryEvent): Observable<HarperResponse> {
     return this.http.post<HarperResponse>(this.connection.server, telemetryEvent, { headers: this.headers }).pipe(
-      tap((response: HarperResponse) => this.log(` "${(response.message)}" in HarperDB `)),
+      tap((response: HarperResponse) => this.log(` '${(response.message)}' in HarperDB `)),
       catchError(this.handleError<HarperResponse>('writeTelemetry'))
     );
   }

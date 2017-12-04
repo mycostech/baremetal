@@ -20,7 +20,7 @@
     </nav>
     <div class=" col-md-10 col-md-offset-1" style="clear:both;">
         <ngx-datatable #table class='material' [columns]="columns " [columnMode]=" 'force' " [headerHeight]="50 " [footerHeight]="50 "
-            [rowHeight]=" 'auto' " [limit]="10 " [rows]='rows'>
+            [rowHeight]=" 'auto' " [limit]="10 " [attr.rows]="rows">
         </ngx-datatable>
     </div>
 

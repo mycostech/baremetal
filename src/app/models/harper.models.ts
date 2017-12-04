@@ -35,12 +35,12 @@ export class HarperResponse {
 }
 
 export class HarperOperation {
-  protected schema = "baremetal";
-  protected table = "telemetry";
+  protected schema = 'baremetal';
+  protected table = 'telemetry';
 }
 
 export class TelemetryEvent extends HarperOperation {
-  private operation = "insert";
+  private operation = 'insert';
   records: Record[] = [];
 
   constructor() {
