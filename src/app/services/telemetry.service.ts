@@ -33,7 +33,7 @@ export class TelemetryService {
   /**
   * BareMetal's Primary Service Method
   */
-  public readTelemetry(): Observable<Record[]> {
+  readTelemetry(): Observable<Record[]> {
     return this.http.post<Record[]>(this.connection.server, readTelemetryOperation, { headers: this.headers }).pipe(tap(telemetryRows =>
       this.log(` Returned "${(telemetryRows.length)}" records from HarperDB `)),
       catchError(this.handleError('readTelemetry', []))
