@@ -1,21 +1,40 @@
-<div>
-    <h1>
-        Welcome to {{ title }}!
-    </h1>
-    <button (click)="onWriteTelemetry() ">Write Some Telemetry Data</button>
-    <button (click)="onReadTelemetry() ">Read Telemetry Data</button>
+<div id="page">
 
-    <ngx-datatable #table class='material' [columns]="columns " [columnMode]=" 'force' " [headerHeight]="50 " [footerHeight]="50 " [rowHeight]=" 'auto' " [limit]="10 " [rows]='rows'>
-    </ngx-datatable>
+    <div class="bs-docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>{{ title }}</h1>
 
+        </div>
+    </div>
+    <nav class="navbar topnav">
+        <div class="container-fluid col-md-10 col-md-offset-1">
+            <ul class="nav navbar-nav">
+                <li (click)="onWriteTelemetry() ">
+                    <a href="#">Write Some Telemetry Data</a>
+                </li>
+                <li (click)="onReadTelemetry() ">
+                    <a href="#">Read Telemetry Data</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class=" col-md-10 col-md-offset-1" style="clear:both;">
+        <ngx-datatable #table class='material' [columns]="columns " [columnMode]=" 'force' " [headerHeight]="50 " [footerHeight]="50 "
+            [rowHeight]=" 'auto' " [limit]="10 " [rows]='rows'>
+        </ngx-datatable>
+    </div>
+
+    <footer id="myFooter">
+        <div class="container">
+            <ul>
+                <li>
+                    <a target="_blank " rel="noopener " href="https://www.mycostech.com ">Mycos Technologies</a>
+                </li>
+                <li>
+                    <a target="_blank " rel="noopener " href="https://www.harperdb.io ">HarperDB</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
 </div>
-
-<ul>
-    <li>
-        <a target="_blank " rel="noopener " href="https://www.mycostech.com ">Mycos Technologies</a>
-    </li>
-    <li>
-        <a target="_blank " rel="noopener " href="https://www.harperdb.io ">HarperDB</a>
-    </li>
-</ul>
