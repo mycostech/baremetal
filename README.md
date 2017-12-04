@@ -22,6 +22,11 @@ After the database is running, there are two HTTP posts to make.  You need a bas
   "hash_attribute": "id"
 }
 ```
+
+## Add your database credentials 
+
+For *development only* define your database user/password in the /environment/environment.ts file
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
